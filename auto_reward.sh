@@ -4,7 +4,7 @@ RED_COLOR='\033[0;31m'
 WITHOU_COLOR='\033[0m'
 DELEGATOR_ADDRESS='rebus150psuhkxj7s8twqwn705c6tg9k03th6j0u0c6u'
 VALIDATOR_ADDRESS='rebusvaloper150psuhkxj7s8twqwn705c6tg9k03th6j3tn80l'
-PWD='Hj19yi43.'
+PWD=''
 DELAY=1800 #in secs — how often restart the script
 ACC_NAME='omega' #example: = ACC_NAME=Wallet30
 NODE="tcp://localhost:26657" #change it only if you use another rpc port of your node
