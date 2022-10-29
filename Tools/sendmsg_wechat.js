@@ -1,19 +1,15 @@
 const axios = require('axios');
-const fs = require('fs');
+const config = require('./config.json');
 
 /**
  * 获取 accessToken
  * @returns accessToken
  */
 const getAccessToken = async () => {
-  // APP_ID
-  const appId = ''
-  // APP_SECRET
-  const appSecret = ''
   // accessToken
   let accessToken = null
 
-  const postUrl = `https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=${appId}&secret=${appSecret}`
+  const postUrl = `https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=${config.appId}&secret=${config.appSecret}`
 
   try {
     const res = await axios.get(postUrl).catch((err) => err)
@@ -45,8 +41,6 @@ const wxTemplateData = [
 const sendMessageByWeChatTest = async () => {
   let arguments = process.argv.splice(2)
   var arg1 = arguments[0]
-  const userId = ''
-  const templateId = ''
   let accessToken = await getAccessToken()
 
   if (!accessToken) {
@@ -58,8 +52,8 @@ const sendMessageByWeChatTest = async () => {
 
   const url = `https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=${accessToken}`
   const data = {
-    touser: userId,
-    template_id: templateId,
+    touser: config.userId,
+    template_id: config.templateId,
     url: assembleOpenUrl(),
     topcolor: '#FF0000',
     data: {

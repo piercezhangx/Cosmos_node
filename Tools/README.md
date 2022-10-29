@@ -7,7 +7,7 @@
 * npm install
 * open "http://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=sandbox/login" & scan QR code with your wechat
 * search how to use wechat interface test account
-* replace appId, appSecret, userId and templateId from nodes.txt with your owner datas
+* replace appId, appSecret, userId and templateId in config.json with your owner
 * Run ./alerts.sh
 
 ## Recommend useage
@@ -15,5 +15,5 @@
 * `*/1 * * * *  /bin/bash $PATH/alerts.sh`
 
 ### auto_reward.sh
-This is for Cosmos node(Currently only rebus) auto stake script
+This is for Cosmos node auto stake script
 
