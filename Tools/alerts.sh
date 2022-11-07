@@ -54,14 +54,16 @@ if [[ $REAL_BLOCK -eq 0 ]]; then
     MSG="Attention! Node $MONIKER from $NETWORK can't connect to >> $SIDE_RPC"
 fi
 
+
+SEND_FILE="$HOME/wechat/sendmsg.log"
+SEND_MSG="$HOME/wechat/wechat_sendmsg.js"
 if [[ $MSG != "" ]]; then
     MSG="$NODENAME $MSG"
-    node wetchat_sendmsg.js "$MSG"
+    touch $SEND_FILE
+    node $SEND_MSG "$MSG" >> $SEND_FILE
 fi
 
 # send ping msg every day
-SEND_FILE="$HOME/wetchat/sendmsg.log"
-SEND_MSG="$HOME/wetchat/sendmsg_wechat.js"
 date1=$(date +%s -d "$CURR_TIME")
 date2=$(date +%s -d "$LAST_TIME")
 if [[ $date1 -gt $date2 ]]; then
